@@ -1,0 +1,83 @@
+% !TEX program = pdflatex
+\documentclass[english,onecolumn]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{luainputenc}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose}
+\usepackage{amsfonts}
+\usepackage{babel}
+
+\usepackage{extarrows}
+\usepackage[colorlinks]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+
+\usepackage{amsmath,graphicx}
+\usepackage{subfigure} 
+\usepackage{cite}
+\usepackage{amsthm,amssymb,amsfonts}
+\usepackage{textcomp}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage[justification=centering]{caption}
+\usepackage{pythonhighlight}
+
+\DeclareMathOperator*{\argmin}{arg\,min} 
+
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+\topmargin            -18.0mm
+\textheight           226.0mm
+\oddsidemargin      -4.0mm
+\textwidth            166.0mm
+\def\baselinestretch{1.5}
+
+\begin{document}
+
+\begin{center}
+	\large{\textbf{CS253 Cyber Security, Fall 2022-23}}\\
+	Homework Set \#4\\
+	\texttt{Prof. Yuqi Chen } 
+\par\end{center}
+
+\noindent
+\rule{\linewidth}{0.4pt}
+{\bf Acknowledgements:}
+\begin{enumerate}
+	\item Deadline: {\bf 2022-10-03 23:59:59}
+	\item No handwritten is accepted.
+%	 You need to use \LaTeX.
+%	\item Do use the given template.
+	\item Coding with any programming language is okay.
+	\item Do not skip any steps to get more grades.
+\end{enumerate}
+\rule{\linewidth}{0.4pt}
+
+%% Problem 1
+\noindent\textbf{Problem 1.}  \textcolor{blue}{(100 points)} \\
+Write a simple virus to infect python script
+\begin{itemize}
+	\item Infect all the files with a ".py" suffix in the "malware\_p" folder.
+	\item Payload: display a message "I see you!"
+	\item \textcolor{red}{Replicates}
+	\item Pre-pending:keep original code
+	\item Signature
+\end{itemize}
+%% Write your solutions here
+\textcolor{blue}{\textit{You need to attach your code with the manual including assumptions and privileges. Your code will be run first and tested whether any ".py" script in "malware\_p" can infect other new scripts.}}
+
+\noindent\textbf{Solution: }
+
+Assumptions and privileges:
+
+1. If the 'malware\_p' folder is in the same directory as virus.py, no other permissions are required. Otherwise, read and write privileges for the directory where 'malware\_p' is located may be required.
+
+2. The propagation() function can only be used in macos at the moment, and I commented it out because it is not required by the homework. It will read recent email contacts and try to send phishing emails, which may require read privileges to some directories.
+
+Quick test:
+
+I provide 'test\_virus\_mac.sh'(should also work on Linux) and 'test\_virus\_win.sh' for testing. The scripts will first run virus.py and infect all python script files in the target directory, then create a new python file in the target directory, and finally run an already infected python file to infect the newly created file. You can check and run the python files in the target directory to see if virus.py meets expectations.
+
+Following is the code in virus.py:
+\inputpython{../virus.py}{1}{141}
+\end{document}
