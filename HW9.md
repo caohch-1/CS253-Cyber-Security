@@ -1,0 +1,6 @@
+# CS253 HW9
+**a.** The client application checks the server domain name specified in the server certificate is the same as the actual domain name of the server. If they are not the same, the authentication fails.
+**b.** With SSL, key-management is handled well because short-term session keys are generated using random hash number generators. Each direction of communication generates independent keys for the connection as well as for each instance of the connection.
+**c.** If the server requests client authentication, the SSL protocol requires that the client create a digital signature by creating a one-way hash from randomly generated data during the handshake and known only to the client and server. The hash data is encrypted with the client's private key that corresponds to the public key in the certificate received by the server.
+**d.** SSL uses HMAC, a simple, fast, hash-based construction with strong theoretical evidence for its security. Authentication can be requested during the connection in order to protect the confidential nature of data being passed.
+**e.** SYN flooding is also handled by SSL in that the source of the message has to be authenticated before a response is generated. The messages that are continuously sent, can be removed if the source of the requests are considered invalid.
